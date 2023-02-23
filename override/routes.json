@@ -71,6 +71,12 @@
     "file": "fedora.mdx",
     "cname": "fedora"
   },
+  "/m.ac/": {
+    "title": "m.ac",
+    "fullTitle": "m.ac",
+    "file": "m.ac.mdx",
+    "cname": "m.ac"
+  },
   "/mariadb/": {
     "title": "MariaDB",
     "fullTitle": "MariaDB 镜像使用帮助",
