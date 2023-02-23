@@ -1,0 +1,12 @@
+{
+  "mirrors_legacy": [
+    "xtom-cdn",
+    "xtom",
+    "xtom-hk",
+    "xtom-de",
+    "xtom-nl",
+    "xtom-ee",
+    "xtom-jp",
+    "xtom-au"
+  ]
+}

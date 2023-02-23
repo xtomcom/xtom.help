@@ -1,0 +1,9 @@
+[submodule "mirrorz"]
+	path = mirrorz
+	url = https://github.com/mirrorz-org/mirrorz
+[submodule "mirrorz-json-legacy"]
+	path = mirrorz-json-legacy
+	url = https://github.com/mirrorz-org/mirrorz-json-legacy
+[submodule "mirrorz-help"]
+	path = mirrorz-help
+	url = https://github.com/mirrorz-org/mirrorz-help

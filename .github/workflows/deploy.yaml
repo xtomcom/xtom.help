@@ -1,0 +1,89 @@
+name: Build Site
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+				with:
+					submodules: true
+
+			- name: setup directory structure
+				run: |
+          mkdir mirrorz/src/config 
+          ln -s ../../../config.json mirrorz/src/config/config.json
+          ln -s ../../../mirrorz-json-legacy/data mirrorz/static/json/legacy
+          cp .env.local mirrorz-help/.env.local
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: node_modules CI Cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/mirrorz-help/node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Next.js CI Cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/mirrorz-help/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('src/**', 'contents/**') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: Install Dependencies
+        run: cd mirrorz-help && npm clean-install
+
+      - name: Build Site
+        run: cd mirrorz-help && npm run og:build && npm run build && npm run export
+
+      - name: Add xtom-pack.json
+        run: node mirrorz/scripts/legacy-pack.js > mirrorz-help/out/xtom-pack.json
+
+      - name: Upload Build Output to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ${{ github.workspace }}/mirrorz-help/out/
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy Site to Server
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      matrix:
+        host:
+          - 194.169.54.56  # xtom.help
+      fail-fast: false
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ${{ github.workspace }}/mirrorz-help/out/
+
+      - run: ls -R ${{ github.workspace }}/mirrorz-help/out/
+
+      - name: Deploy to Server (${{ matrix.host }})
+        uses: easingthemes/ssh-deploy@v4.0.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: '-avz --delete'
+          REMOTE_HOST: ${{ matrix.host }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: mirrorz-help/out/*
+          TARGET: /var/www/xtom.help/
+          EXCLUDE: .git,.github,.gitlab-ci.yml,.nojekyll
