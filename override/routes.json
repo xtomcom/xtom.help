@@ -1,0 +1,104 @@
+{
+  "/alpine/": {
+    "title": "Alpine 软件仓库",
+    "fullTitle": "Alpine 软件仓库镜像使用帮助",
+    "file": "alpine.mdx",
+    "cname": "alpine"
+  },
+  "/archlinux/": {
+    "title": "Arch Linux 软件仓库",
+    "fullTitle": "Arch Linux 软件仓库镜像使用帮助",
+    "file": "archlinux.mdx",
+    "cname": "archlinux"
+  },
+  "/archlinuxcn/": {
+    "title": "Arch Linux CN 软件仓库",
+    "fullTitle": "Arch Linux CN 软件仓库镜像使用帮助",
+    "file": "archlinuxcn.mdx",
+    "cname": "archlinuxcn"
+  },
+  "/centos/": {
+    "title": "CentOS 软件仓库",
+    "fullTitle": "CentOS 软件仓库镜像使用帮助",
+    "file": "centos.mdx",
+    "cname": "centos"
+  },
+  "/centos-altarch/": {
+    "title": "CentOS altarch 软件仓库",
+    "fullTitle": "CentOS altarch 软件仓库镜像使用帮助",
+    "file": "centos-altarch.mdx",
+    "cname": "centos-altarch"
+  },
+  "/debian/": {
+    "title": "Debian 软件仓库",
+    "fullTitle": "Debian 软件仓库镜像使用帮助",
+    "file": "debian.mdx",
+    "cname": "debian"
+  },
+  "/debian-security/": {
+    "title": "Debian Security 软件仓库",
+    "fullTitle": "Debian Security 软件仓库镜像使用帮助",
+    "file": "debian-security.mdx",
+    "cname": "debian-security"
+  },
+  "/debian-cd/": {
+    "title": "Debian CD",
+    "fullTitle": "Debian CD 镜像使用帮助",
+    "file": "debian-cd.mdx",
+    "cname": "debian-cd"
+  },
+  "/debian-cdimage/": {
+    "title": "Debian CDImage",
+    "fullTitle": "Debian CDImage 镜像使用帮助",
+    "file": "debian-cdimage.mdx",
+    "cname": "debian-cdimage"
+  },
+  "/docker-ce/": {
+    "title": "Docker CE 软件仓库",
+    "fullTitle": "Docker CE 软件仓库镜像使用帮助",
+    "file": "docker-ce.mdx",
+    "cname": "docker-ce"
+  },
+  "/epel/": {
+    "title": "EPEL 软件仓库",
+    "fullTitle": "EPEL 软件仓库镜像使用帮助",
+    "file": "epel.mdx",
+    "cname": "epel"
+  },
+  "/fedora/": {
+    "title": "Fedora 软件仓库",
+    "fullTitle": "Fedora 软件仓库镜像使用帮助",
+    "file": "fedora.mdx",
+    "cname": "fedora"
+  },
+  "/mariadb/": {
+    "title": "MariaDB",
+    "fullTitle": "MariaDB 镜像使用帮助",
+    "file": "mariadb.mdx",
+    "cname": "mariadb"
+  },
+  "/proxmox/": {
+    "title": "Proxmox 软件仓库",
+    "fullTitle": "Proxmox 软件仓库镜像使用帮助",
+    "file": "proxmox.mdx",
+    "cname": "proxmox"
+  },
+  "/rocky/": {
+    "title": "Rocky Linux 软件仓库",
+    "fullTitle": "Rocky Linux 软件仓库镜像使用帮助",
+    "file": "rocky.mdx",
+    "cname": "rocky"
+  },
+  "/ubuntu/": {
+    "title": "Ubuntu 软件仓库",
+    "fullTitle": "Ubuntu 软件仓库镜像使用帮助",
+    "file": "ubuntu.mdx",
+    "cname": "ubuntu"
+  },
+  "/ubuntu-ports/": {
+    "title": "Ubuntu Ports 软件仓库",
+    "fullTitle": "Ubuntu Ports 软件仓库镜像使用帮助",
+    "file": "ubuntu-ports.mdx",
+    "cname": "ubuntu-ports"
+  }
+}

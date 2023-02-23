@@ -21,6 +21,11 @@ jobs:
           ln -s ../../../mirrorz-json-legacy/data mirrorz/static/json/legacy
           cp .env.local mirrorz-help/.env.local
 
+      - name: override
+        run: |
+          cp override/routes.json mirrorz-help/src/routes.json
+          cp override/contents/* mirrorz-help/contents/
+
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
