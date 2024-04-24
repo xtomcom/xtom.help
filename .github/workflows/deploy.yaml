@@ -54,7 +54,7 @@ jobs:
         run: cd mirrorz-help && npm clean-install
 
       - name: Build Site
-        run: cd mirrorz-help && npm run og:build && npm run build && npm run export
+        run: cd mirrorz-help && npm run og:build && npm run build
 
       - name: Add xtom-pack.json
         run: node mirrorz/scripts/legacy-pack.js > mirrorz-help/out/xtom-pack.json
